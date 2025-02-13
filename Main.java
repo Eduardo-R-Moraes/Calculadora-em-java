@@ -1,16 +1,17 @@
 import java.util.Scanner;
 
-public class main {
+public class Main {
+
+    private static float lerNumero(Scanner scanner, String mensagem) {
+        System.out.print(mensagem);
+        return scanner.nextFloat();
+    }
+
     public static void main(String[] args) {
-        calculadora Calculadora = new calculadora();
         Scanner leitura = new Scanner(System.in);
         float numero1, numero2, resultado;
         
         while (true) {
-            numero1 = 0;
-            numero2 = 0;
-            resultado = 0;
-
             System.out.println("1 - Somar");
             System.out.println("2 - Subtrair");
             System.out.println("3 - Multiplicar");
@@ -25,46 +26,27 @@ public class main {
                 break;
             }
             
+            numero1 = lerNumero(leitura, "Primeiro Número: ");
+            numero2 = lerNumero(leitura, "Segundo Número: ");
+
             switch (opcao) {
                 case 1:
-                    System.out.print("Primeiro número: ");
-                    numero1 = leitura.nextFloat();
-                    System.out.print("Segundo número: ");
-                    numero2 = leitura.nextFloat();
-                    
                     resultado = Calculadora.somar(numero1, numero2);
                     System.out.println("A soma de " + numero1 + " e " + numero2 + " é igual a " + resultado);
-
                     break;
 
                 case 2:
-                    System.out.print("Primeiro número: ");
-                    numero1 = leitura.nextFloat();
-                    System.out.print("Segundo número: ");
-                    numero2 = leitura.nextFloat();
-                    
                     resultado = Calculadora.subtrair(numero1, numero2);
                     System.out.println("A subtração de " + numero1 + " e " + numero2 + " é igual a " + resultado);
 
                     break;
                     
                 case 3:
-                    System.out.print("Primeiro número: ");
-                    numero1 = leitura.nextFloat();
-                    System.out.print("Segundo número: ");
-                    numero2 = leitura.nextFloat();
-                    
                     resultado = Calculadora.multiplicar(numero1, numero2);
                     System.out.println("A multiplicação de " + numero1 + " e " + numero2 + " é igual a " + resultado);
-
                     break;
 
                 case 4:
-                    System.out.print("Primeiro número: ");
-                    numero1 = leitura.nextFloat();
-                    System.out.print("Segundo número: ");
-                    numero2 = leitura.nextFloat();
-                    
                     if (numero2 != 0) {
                         resultado = Calculadora.dividir(numero1, numero2);
                         System.out.println("A divisão de " + numero1 + " e " + numero2 + " é igual a " + resultado);
@@ -83,10 +65,8 @@ public class main {
             System.out.println();
             
             leitura.nextLine();
-            String continuar = leitura.nextLine();
+            leitura.nextLine();
         }
-
         leitura.close();
-
     }
 }
